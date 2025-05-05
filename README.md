@@ -1,5 +1,6 @@
 # Observable Framework Example
 
+
 This is an [Observable Framework](https://observablehq.com/framework/) app. To install the required dependencies, run:
 
 ```
@@ -57,3 +58,48 @@ A typical Framework project looks like this:
 | `npm run deploy`     | Deploy your app to Observable                            |
 | `npm run clean`      | Clear the local data loader cache                        |
 | `npm run observable` | Run commands like `observable help`                      |
+
+
+## Additional Information
+
+For this example, we made minimal additions and changes to the template files.
+We added an interpreter configuration to the `observablehq.config.js` file to make sure that the correct Python path for Windows is used.
+We also added a dataset (`data/aiv-ss25-pokemon.csv`) along with a data loader (`data/pokemon.json.py`) that loads the CSV and provides a JSON version of it.
+
+In the newly added app page (`notebook-reuse.md`), we access that data and create a stacked bar plot from it.
+The original notebook code was the following:
+
+```js
+// Cell 1
+pokemon = FileAttachment("aiv-ss25-pokemon.csv").csv()
+
+// Cell 2
+// Observable Table cell for creating a typed version pokemonTyped
+
+// Cell 3
+pokeScatter = Plot.plot({
+  marks: [Plot.dot(pokemonTyped, { x: "speed", y: "hp", stroke: "type1" })]
+})
+
+// Cell 4
+pokeBar = Plot.plot({
+  color: {
+    legend: true
+  },
+  marks: [
+    Plot.rectY(
+      pokemonTyped,
+      Plot.binX({ y: "count" }, { x: "speed", fill: "type1" })
+    ),
+    Plot.ruleY([0])
+  ],
+  y: {
+    domain: [0, yMax]
+  }
+})
+
+// Cell 5
+viewof yMax = Inputs.range([1, 150], { label: "Y Max", step: 1 })
+```
+
+Check out the code blocks in the markdown file `notebook-reuse.md` to understand the differences between Observable JS and vanilla JS, in particular the variable definitions and the use if `view(...)`.
