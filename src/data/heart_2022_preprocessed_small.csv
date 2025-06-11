@@ -1,0 +1,101 @@
+id,HadHeartAttack,HadSkinCancer,HadAngina,HadStroke,SmokerStatus
+0,No,No,No,No,Former smoker
+1,No,No,No,No,Former smoker
+2,No,No,No,No,Former smoker
+3,No,Yes,No,No,Never smoked
+4,No,No,No,No,Never smoked
+5,No,No,No,No,Never smoked
+6,No,No,No,Yes,Never smoked
+7,Yes,Yes,Yes,No,Never smoked
+8,No,No,No,No,Former smoker
+9,No,Yes,No,No,Former smoker
+10,No,No,No,No,Never smoked
+11,No,No,No,No,Never smoked
+12,Yes,Yes,No,No,Current smoker - now smokes every day
+13,No,No,No,No,Former smoker
+14,No,No,Yes,No,Never smoked
+15,No,No,No,No,Former smoker
+16,No,No,No,No,Current smoker - now smokes every day
+17,No,No,No,No,Current smoker - now smokes every day
+18,No,No,No,Yes,Never smoked
+19,No,Yes,No,No,Former smoker
+20,No,No,Yes,No,Never smoked
+21,No,No,No,No,Never smoked
+22,No,Yes,No,No,Current smoker - now smokes some days
+23,No,No,No,No,Never smoked
+24,No,No,Yes,No,Former smoker
+25,No,No,No,No,Former smoker
+26,No,No,No,No,Never smoked
+27,No,Yes,No,No,Never smoked
+28,No,No,No,No,Former smoker
+29,No,No,No,No,Never smoked
+30,No,No,No,No,Current smoker - now smokes every day
+31,No,No,No,Yes,Former smoker
+32,No,No,No,No,Never smoked
+33,No,No,No,No,Never smoked
+34,Yes,No,Yes,No,Former smoker
+35,No,Yes,No,No,Former smoker
+36,No,No,No,No,Current smoker - now smokes every day
+37,Yes,No,Yes,No,Former smoker
+38,No,No,No,No,Current smoker - now smokes every day
+39,No,Yes,No,No,Never smoked
+40,No,No,No,No,Never smoked
+41,No,No,No,No,Never smoked
+42,No,Yes,No,No,Never smoked
+43,Yes,No,Yes,Yes,Never smoked
+44,Yes,Yes,Yes,Yes,Former smoker
+45,No,Yes,No,No,Never smoked
+46,No,No,No,No,Former smoker
+47,No,No,No,No,Never smoked
+48,No,No,No,No,Never smoked
+49,No,No,No,No,Current smoker - now smokes every day
+50,No,Yes,No,No,Former smoker
+51,Yes,No,No,No,Current smoker - now smokes every day
+52,Yes,No,Yes,No,Former smoker
+53,No,No,No,No,Former smoker
+54,No,No,No,No,Never smoked
+55,Yes,No,Yes,No,Never smoked
+56,No,Yes,No,Yes,Never smoked
+57,No,No,No,No,Never smoked
+58,No,No,No,No,Never smoked
+59,Yes,No,No,No,Never smoked
+60,No,No,Yes,No,Never smoked
+61,No,No,No,No,Former smoker
+62,No,No,No,No,Never smoked
+63,No,No,No,No,Former smoker
+64,No,No,No,No,Never smoked
+65,No,No,No,No,Never smoked
+66,No,No,No,No,Never smoked
+67,No,No,No,No,Former smoker
+68,No,No,No,No,Current smoker - now smokes some days
+69,No,No,No,No,Former smoker
+70,No,No,No,No,Never smoked
+71,No,No,No,No,Never smoked
+72,No,No,No,No,Never smoked
+73,No,No,No,No,Current smoker - now smokes some days
+74,No,No,No,No,Never smoked
+75,No,No,No,No,Never smoked
+76,No,No,No,No,Never smoked
+77,Yes,No,No,No,Never smoked
+78,No,No,No,No,Never smoked
+79,No,Yes,No,No,Never smoked
+80,No,No,No,No,Current smoker - now smokes every day
+81,No,No,No,No,Never smoked
+82,No,No,No,No,Never smoked
+83,No,No,Yes,No,Former smoker
+84,No,No,No,No,Never smoked
+85,No,No,No,No,Current smoker - now smokes some days
+86,No,Yes,Yes,No,Never smoked
+87,No,No,No,No,Former smoker
+88,No,No,No,No,Never smoked
+89,No,No,No,No,Never smoked
+90,No,No,No,No,Never smoked
+91,No,No,No,No,Former smoker
+92,No,No,No,No,Never smoked
+93,No,No,No,No,Never smoked
+94,No,No,Yes,Yes,Current smoker - now smokes every day
+95,Yes,No,No,No,Former smoker
+96,Yes,No,No,Yes,Never smoked
+97,No,Yes,No,No,Former smoker
+98,No,No,No,No,Never smoked
+99,No,No,No,No,Former smoker
