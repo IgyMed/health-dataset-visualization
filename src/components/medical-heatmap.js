@@ -5,15 +5,27 @@ const enc_dict = {
     "binary": {"No":0, "Yes":1},
     "nary": null
   },
-  "HadAngina": {
-    "binary": {"No":0, "Yes":1},
-    "nary": null
-  },
   "HadSkinCancer": {
     "binary": {"No":0, "Yes":1},
     "nary": null
   },
+  "HadAngina": {
+    "binary": {"No":0, "Yes":1},
+    "nary": null
+  },
   "HadStroke": {
+    "binary": {"No":0, "Yes":1},
+    "nary": null
+  },
+  "HadDepressiveDisorder": {
+    "binary": {"No":0, "Yes":1},
+    "nary": null
+  },
+  "HadKidneyDisease": {
+    "binary": {"No":0, "Yes":1},
+    "nary": null
+  },
+  "HadArthritis": {
     "binary": {"No":0, "Yes":1},
     "nary": null
   },
@@ -26,6 +38,66 @@ const enc_dict = {
              "Current smoker - now smokes every day": 1,
              "Current smoker - now smokes some days": 2,
              "Former smoker": 3}
+  },
+  "RemovedTeeth": {
+    "binary": {"None of them": 0, 
+               "1 to 5": 1, 
+               "6 or more, but not all": 1, 
+               "All": 1},
+    "nary": {"None of them": 0,                          
+             "1 to 5": 1, 
+               "6 or more, but not all": 2, 
+               "All": 3}
+  },
+  "ECigaretteUsage": {
+    "binary": {"Never used e-cigarettes in my entire life": 0, 
+               "Not at all (right now)": 1, 
+               "Use them every day": 1, 
+               "Use them some days": 1},
+    "nary": {"Never used e-cigarettes in my entire life": 0,                          
+             "Not at all (right now)": 1, 
+               "Use them every day": 2, 
+               "Use them some days": 3},
+  },
+  "RaceEthnicityCategory": {
+    "binary": {"Hispanic": 0, 
+               "Black only, Non-Hispanic": 1, 
+               "Multiracial, Non-Hispanic": 1, 
+               "Other race only, Non-Hispanic": 1,
+              "White only, Non-Hispanic": 1},
+    "nary": {"Hispanic": 0, 
+               "Black only, Non-Hispanic": 1, 
+               "Multiracial, Non-Hispanic": 2, 
+               "Other race only, Non-Hispanic": 3,
+              "White only, Non-Hispanic": 4},
+  },
+  "AgeCategory": {
+    "binary": {"Age 18 to 24": 0, 
+               "Age 25 to 29": 0, 
+               "Age 30 to 34": 1,
+              "Age 35 to 39": 1, 
+              "Age 40 to 44": 1, 
+              "Age 45 to 49": 1, 
+              "Age 50 to 54": 1, 
+              "Age 55 to 59": 1, 
+              "Age 60 to 64": 1, 
+              "Age 65 to 69": 1, 
+              "Age 70 to 74": 1, 
+              "Age 75 to 79": 1,
+              "Age 80 or older": 1},
+    "nary": {"Age 18 to 24": 0, 
+               "Age 25 to 29": 1, 
+               "Age 30 to 34": 2,
+              "Age 35 to 39": 3, 
+              "Age 40 to 44": 4, 
+              "Age 45 to 49": 5, 
+              "Age 50 to 54": 6, 
+              "Age 55 to 59": 7, 
+              "Age 60 to 64": 8, 
+              "Age 65 to 69": 9, 
+              "Age 70 to 74": 10, 
+              "Age 75 to 79": 11,
+              "Age 80 or older": 12},
   }
 };
 
@@ -165,7 +237,7 @@ export function MedicalHeatmap(data, {
     inner_offset: 10,
     outer_offset: 10,
     offset: 5,
-    box_size: 100
+    box_size: 50
   };
 
   const cov_matrix = heatmap_layout(binar_map, layout);
@@ -217,9 +289,12 @@ function draw_heatmap(cov_matrix, layout, data) {
   }
   
   function plot_detailed_heatmap(event, d) {
-
+    console.log("Clicked on heatmap box:", d);
+    
     let nary_var1 = data[d.box.var1]["nary"];
     let nary_var2 = data[d.box.var2]["nary"];
+    
+    console.log("nary_var1:", nary_var1, "nary_var2:", nary_var2);
     
     if(nary_var1 === null && nary_var2 === null) {
       console.log("Not possible to show detailed correlation because neither variable has nary property");
@@ -239,12 +314,17 @@ function draw_heatmap(cov_matrix, layout, data) {
       binaryVarName = d.box.var1;
     }
     
+    console.log("Using nary variable:", naryVarName, "and binary variable:", binaryVarName);
+    
     const subCategories = Object.keys(naryVar);
+    console.log("Subcategories:", subCategories);
     
     const detailedCorrelations = subCategories.map(subCat => ({
       category: subCat,
       correlation: get_corr_coef(binaryVar, naryVar[subCat])
     }));
+    
+    console.log(`Detailed correlations between ${binaryVarName} and ${naryVarName}:`, detailedCorrelations);
     
     const detailedData = detailedCorrelations.map((item, index) => ({
       x: 50,
@@ -411,7 +491,7 @@ function draw_heatmap(cov_matrix, layout, data) {
     .text(d => d.box.corr_coeff_val.toFixed(2))
     .attr("x", d => d.x + (d.width / 5))
     .attr("y", d => d.y + (d.height / 2))
-    .attr("font-size", "18px")
+    .attr("font-size", "12px")
     .attr("fill", "black")
     .on("mouseover", show_tooltip)
     .on("mousemove", display_tooltip)
